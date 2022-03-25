@@ -1,0 +1,3 @@
+euro symbol &#128184;
+review heart &#128151
+cash &#128184

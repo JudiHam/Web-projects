@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ("../partials/head") %>
+</head>
+
+<body>
+
+    <header>
+        <%- include ("../partials/header") %>
+    </header>
+    
+    <table  class="pure-table">
+        <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <% for (var i=0; i < favorites.length; i++){ %>
+            <tr>
+                <td><img src="<%= favorites[i].Poster %>"></td>
+                <td><%= favorites[i].Title %></td>
+                <td><%= favorites[i].Year %></td>
+            </tr>          
+        <% } %>    
+    </table>
+
+    <footer>
+        <%- include ("../partials/footer") %>
+    </footer>
+</body>
+
+</html>

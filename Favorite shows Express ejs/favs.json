@@ -1,0 +1,23 @@
+{ "favorites": 
+ [
+  {
+    "Title":"Food Wars",
+    "Year":"2015–2019",
+    "Poster":"https://m.media-amazon.com/images/M/MV5BODJhZDFjMTItZTZjZC00MGM0LWFlM2UtZTE2MTU4YjE0MzMxXkEyXkFqcGdeQXVyNTIxNDgzOTg@._V1_SX300.jpg"
+  },
+  {
+    "Title":"Jane the Virgin",
+    "Year":"2014–2019",
+    "Poster":"https://m.media-amazon.com/images/M/MV5BMjUxMDEzNTYyN15BMl5BanBnXkFtZTgwMjQyMzg1NzM@._V1_SX300.jpg"
+  },
+  {
+    "Title":"Nana",
+    "Year":"2006–2007",
+    "Poster":"https://m.media-amazon.com/images/M/MV5BN2EzNWI1OTItNDg0OC00MGNiLWI4MzUtODMyMjgxMGUzNDIxL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_SX300.jpg"
+  },
+  {
+    "Title":"Superstore",
+    "Year":"2015-2021",
+    "Poster":"https://m.media-amazon.com/images/M/MV5BNzM2OWM1MTUtNmNhYy00ZDJlLTgyYWQtOWY3ZmVjYjNiN2U4XkEyXkFqcGdeQXVyODUxOTU0OTg@._V1_SX300.jpg"}
+ ]
+}

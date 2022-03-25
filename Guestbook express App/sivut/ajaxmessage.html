@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/> 
+    <title>Write a message</title>  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet"> 
+    <style>
+      .content {
+          margin: auto;
+          width: 30%;
+      } 
+      h1 {
+          font-family: 'Bad Script', cursive;
+          margin: 35px 0;
+      }
+      form {
+        margin: 20px 0;
+      }
+      table {
+          margin: 20px auto;
+      }
+      .pure-button {
+          background-color: #befff8c2;
+          margin: 2px auto;
+          font-family: 'Bad Script', cursive;
+      }
+      th {
+          background-color: #bbbbbbdb;
+          color: white;
+          font-family: 'Bad Script', cursive;
+      }
+      #btn1 {
+        margin-top: 20px;
+      }
+      p, label, input, h2 {
+        font-family: 'Nunito Sans', sans-serif;
+      }
+    </style>
+    </head>
+    <body>
+      <div class="content">
+        <h1>Guestbook App</h1>
+        <p>Write a new Ajax message!</p>
+
+        <a class="pure-button" href="index.html">Home</a>
+        <a class="pure-button" href="newmessage.html">New message</a>
+        <a class="pure-button" href="/guestbook">Guestbook</a>
+        <a class="pure-button" href="ajaxmessage.html">Ajax message</a>
+
+        <!-- Using the post -method to send data to the server, action defines the address where we send the post-request -->
+        <form id="msgform" class="pure-form pure-form-stacked" method="POST" action="/sendajaxform">
+          <label for="user">Username</label>
+          <input
+            type="text"
+            id="user"
+            placeholder="Username"
+            name="username"
+            required>
+          <label for="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            placeholder="Country"
+            name="country"
+            required>
+          <label for="msg">Your message</label>
+          <input
+            type="text"
+            id="msg"
+            placeholder="Message"
+            name="message"
+            required>
+            <!--Using button type button so that JS can handle the form instead of the browser-->
+          <button type="button" id="btn1" class="pure-button">Send</button>
+        </form>
+        
+        <!--Here is the div where we will place the guestbook table (ajax response)-->
+        <div id="status"></div>
+      </div>
+      
+      <script>
+        //Make sure the page is fully loaded before running any javascript functions
+        window.onload = event => {
+          console.log("The page is fully loaded!");
+
+          //Save send-button as a js variable
+          var button = document.getElementById("btn1");
+
+          //Add listener to button and save form data when button is clicked
+          button.addEventListener("click", () => {
+            var username = document.getElementById("user").value;
+            var country = document.getElementById("country").value;
+            var message = document.getElementById("msg").value;
+          console.log(username + country + message);
+
+          //Now that we have the form data, we need to send it to the server and save it in the json file
+          //Create AJAX object that will return the response in the "status" div
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            //Place the response in the "status" div
+              document.getElementById("status").innerHTML = this.responseText;
+              console.log("response-text:" + this.responseText);  
+            //Build table using node response, how to read json here?
+            var jsondata = JSON.parse(this.responseText);
+            var table = "";
+            table = '<table class="pure-table pure-table-bordered">' + '<thead>' + '<tr>' + '<th>' + "Username" + '</th>' + '<th>' + "Country" + '</th>' + '<th>' + "Message" + '</th>' + '<th>' + "Date" + '</th>' + '</tr>' + '</thead>';
+            for(var i=0; i<jsondata.length; i++) {
+              table += 
+              '<tr>' + 
+              '<td>' + jsondata[i].username + '</td>' +
+              '<td>' + jsondata[i].country + '</td>' +
+              '<td>' + jsondata[i].message + '</td>' +
+              '<td>' + jsondata[i].date + '</td>'
+              '</tr>';
+            }
+            console.log(table);
+            document.getElementById("status").innerHTML = table;
+            }
+          };
+          //Send the POST-type AJAX request to /sendajaxform that is defined in the form
+          xmlhttp.open("POST", "/sendajaxform", true);
+          //Add form data to AJAX request
+          xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          //Send the data variable to the server as string
+          console.log("Data: " + username + " " + country + " " + message);
+          xmlhttp.send("username=" + username + "&country=" + country + "&message=" + message);
+        });
+      };
+      </script> 
+    </body>
+</html>

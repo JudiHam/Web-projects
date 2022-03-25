@@ -1,0 +1,283 @@
+@media screen and (max-width: 1000px) {
+    body {
+        font-size: 90%;
+        width: 100%;
+    }    
+    
+    .flex.container {
+        display: flex;
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    #cont {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .cntrimg {
+        width: 100%;
+    }
+    
+    .cntrimgdiv {
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .sideimg {
+        width: 100%;
+    }
+    
+    .imgdiv {
+        padding: 20px;
+    }
+
+    .mulook {
+        padding-top: 10px;
+    }
+
+    .navlist {
+        display: block;
+    }
+
+    .navul {
+        padding: 0;
+    }
+        
+nav {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 13px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 80%;
+    background-color: rgba(238, 205, 161, 0.449);
+    padding: 1px 0;
+}
+
+.navlist a {
+    transition: color 0.7s;
+}
+
+}
+
+@media screen and (min-width: 1000px){
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+    }   
+
+    body {
+    width: 60%;
+    margin-left: auto; 
+    margin-right: auto;
+    }   
+    
+    .navlist {
+        display: inline;
+        margin-right: 0px;
+        margin-left: 30px;
+    }
+    
+    nav {
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        font-size: 80%;
+        background-color: rgba(238, 205, 161, 0.449);
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .navul {
+        padding-top: 12px;
+        padding-left: 0;
+    }
+    
+    .navlist a {
+        padding-left: 10px;
+        padding-right: 10px;
+        transition: color 0.7s;
+    }
+    
+    img {
+        width: 100%;
+    }
+
+    .mulook {
+        width: 100%;
+        padding: 4px;
+    }
+
+    .cntrimg {
+        height: 400px;
+        width: auto;
+        padding: 0 10px;
+    }
+    
+    .cntrimgdiv {
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .missrbtswatch {
+        width: 50%;
+    }
+
+    .sideimg {
+        width: 40%;
+    }
+    
+    .imgdiv {
+        padding: 20px;
+    }
+
+    #aboutme {
+      margin: 30px 50px;
+    }
+
+    .contact {
+        text-align: center;
+    }
+}
+
+header {
+    text-align: center;
+    background-image: url('images/glitter.png');
+    height: 150px;
+    background-position: center; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 140%; 
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-weight: 400;
+    height: 150px;
+    text-shadow: 5px 5px 5px rgb(255, 255, 255);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 55px 0;
+}
+
+a {
+    transition: color 0.7s;
+}
+
+a.navlinks:link, a.navlinks:visited {
+    color: black;
+}
+
+a.navlinks:hover, a.navlinks:active {
+    color: rgb(255, 184, 157);
+}
+
+a:link, .nolinkh3 {
+    text-decoration: none;
+    color: rgb(255, 126, 126);
+}
+  
+a:visited {
+    text-decoration: none;
+    color: rgb(255, 126, 126);
+}
+  
+a:hover {
+    text-decoration: none;
+    color: rgb(255, 184, 157);
+}
+  
+a:active {
+    text-decoration: none;
+    color: rgb(255, 184, 157);
+}
+
+.centrdtxt, h2, h5 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+.ul-no-dec li {
+    list-style: none;
+}
+
+p, h5, h6, ol, dl, .bloglink, .ul-no-dec {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, figcaption {
+    font-weight: 400;
+    font-family: 'Major Mono Display', monospace;
+}
+
+footer {
+    font-size: 60%;
+    padding: 10px 0;
+    background-color: rgba(238, 205, 161, 0.449);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Major Mono Display', monospace;
+}
+
+footer a:link, footer a:visited {
+    color: black;
+}
+
+footer a:hover, footer a:active {
+    color: rgb(255, 184, 157);
+}
+
+li, dd {
+    padding: 5px 0;
+}
+
+dt {
+    padding-top: 10px;
+}
+
+dd {
+    font-size: 80%;
+}
+
+h5 {
+    margin-bottom: 0;
+}
+
+figcaption {
+    text-align: center;
+    color: rgb(145, 145, 145);
+    font-size: 70%;
+}
+
+figure {
+    padding: 0;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+.icon {
+    width: 20px;
+}
+
+.icontr {
+    opacity: 0.3;
+}
+
+.smicon {
+    width: 50px;
+}

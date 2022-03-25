@@ -1,0 +1,38 @@
+[
+ {
+  "username": "Judith da Silva",
+  "country": "Finland",
+  "message": "Hi!",
+  "date": "Mon Mar 08 2021"
+ },
+ {
+  "username": "Mr Awesome",
+  "country": "Hawaii",
+  "message": "My french fries are almost ready :)",
+  "date": "Fri Mar 12 2021"
+ },
+ {
+  "username": "Kristoffer01",
+  "country": "Finland",
+  "message": "Hey there!",
+  "date": "Tue Mar 08 2022"
+ },
+ {
+  "username": "Joao Hämäläinen",
+  "country": "France",
+  "message": "Hi wassup.",
+  "date": "Tue Mar 08 2022"
+ },
+ {
+  "username": "Helena",
+  "country": "Brazil",
+  "message": "Hey!",
+  "date": "Mon Mar 21 2022"
+ },
+ {
+  "username": "Martta",
+  "country": "Åland",
+  "message": "It's spring!",
+  "date": "Mon Mar 21 2022"
+ }
+]

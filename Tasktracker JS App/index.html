@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta charset="utf-8"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <style>
+            body {
+                margin: 0;
+                background: url("bgimg2.jpg");
+                position: relative;
+                background-size: cover;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .contentwrapper {
+                margin: 15px 20px;
+                padding: 10px 20px;
+                background-color: rgba(255, 255, 255, 0.938);
+                border-radius: 5px;
+                height: auto;
+            }
+            h2 {
+                margin: 0;
+            }
+            #header {
+                font-family: 'Staatliches', cursive;
+                background-color: rgba(255, 163, 65, 0.912);
+                color: rgb(255, 255, 255);
+                padding: 5px 30px;
+            }
+            form {
+                padding: 10px 0;
+            }
+            span {
+                cursor: pointer;
+                padding: 2px 5px;
+            }
+            span:hover {
+                background-color: rgba(255, 163, 65, 0.646);
+                color: white;
+            }
+            p, h3 {
+                margin: 0;
+            }
+            footer {
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                text-align: center;
+                background-color: rgba(255, 151, 65, 0.946);
+                color:rgb(255, 255, 255);
+                padding: 10px;
+                font-size: 60%;
+            }
+            #footerp {
+                margin: 0;
+            }
+            .taskdiv {
+                border: 1px solid rgb(68, 65, 65);
+                margin-top: -2px;
+                height: 80px;
+            }
+            dt {
+                padding: 10px 10px 5px 10px;
+            }
+            #addbtn {
+                border: 1px solid black;
+                padding: 2px 5px;
+            }
+            .delete {
+                vertical-align: 50%;
+                float: right;
+                margin: 10px;
+            }
+            .dldiv {
+                height: 60%;
+                float: left;
+            }
+            .tasktitles {
+                font-weight: bold;
+            }
+            
+        </style>
+        <!--The JS code-->
+        <script>
+            //When the user fills out the form and clicks the submit button, 
+            //the task is added to the <dl> list.
+            function addTask() {
+                //Create a div for each new task on the list, div contains task and del button
+                var listItem = document.createElement("div");
+                listItem.setAttribute("class", "taskdiv");
+                //Create dt (task date) and dd (title & details) elements where data will go
+                var datedt = document.createElement("dt");
+                var titledd = document.createElement("dd");
+                titledd.setAttribute("class", "tasktitles");
+                var detailsdd = document.createElement("dd");
+                //div for list item, separate from del button 
+                var dldiv = document.createElement("div");
+                dldiv.setAttribute("class", "dldiv");
+                //For date value, convert date data to string data and display nicely:
+                day = document.getElementById("tdate").value.substr(8, 2).toString();
+                month = document.getElementById("tdate").value.substr(5, 2).toString();
+                year = document.getElementById("tdate").value.substr(0, 4).toString();
+                date = day + "." + month + "." + year;
+                //Get data from form input fields and add to new textnodes
+                //and append as textnodes to list elements (tdate, ttitle, tdetails are the form input field ids)
+                datedt.appendChild(document.createTextNode(date));
+                titledd.appendChild(document.createTextNode(document.getElementById("ttitle").value)); 
+                detailsdd.appendChild(document.createTextNode(document.getElementById("tdetails").value));
+                //Append list elements that now include data, to deldiv
+                dldiv.appendChild(datedt);
+                dldiv.appendChild(titledd);
+                dldiv.appendChild(detailsdd);
+                //Append dldiv to task div
+                listItem.appendChild(dldiv);
+                //Create a span and div for the delete button
+                var delbtn = document.createElement("span");
+                var deldiv = document.createElement("div");
+                //put del button span in deldiv
+                deldiv.appendChild(delbtn);
+                deldiv.setAttribute("id", "deldiv")
+                //Add a class attribute to del buttons so that the button can be identified
+                delbtn.setAttribute("class", "delete");
+                //Add x to button 
+                delbtn.innerHTML = "x";
+                //Add an event to each delete button to remove individual tasks
+                delbtn.addEventListener("click", function() {
+                    this.parentElement.style.display = "none";
+                });
+                //Append button to task div
+                listItem.appendChild(delbtn);
+                //Create a JS element for the dl task list that's in the html
+                var tlist = document.getElementById("tasklist");
+                //Append listItem div that now includes all task data to the dl task list
+                tlist.appendChild(listItem);
+            //Empty form when task is submitted
+            document.getElementById("dataform").reset();
+            }
+                
+            //Validation function: the form can't be submitted if any form input field is empty.
+            function validateForm() {
+                var empty = false;
+                    //if any field is empty, alert user about issue 
+                if (document.getElementById("ttitle").value == "") {
+                    alert("The task must be given a title.");
+                    empty = true;
+                }
+                if (document.getElementById("tdate").value == "") {
+                    alert("The task must be given a date.");
+                    empty = true;
+                }
+                if (document.getElementById("tdetails").value == "") {
+                    alert("The task must be given a description.");
+                    empty = true;
+                }
+                console.log(empty);
+                //Add task to list by calling addTask function if the value of empty wasn't changed to true at any point 
+                if (!empty){
+                    addTask();
+                }
+                return false;
+            }
+        </script>
+        
+        <!--The HTML-->
+        <h2 id="header">TaskTracker</h2>
+        <div class="contentwrapper">
+        <p>Welcome to TaskTracker, a to-do list app to help you keep track of your to-do list! </p>
+        </div>
+        <div class="contentwrapper">
+        <h3>Add a new task</h3>
+        <!--Form for new list item input-->
+        <form onsubmit="return validateForm()" id="dataform">
+            <label for="ttitle">Task title:</label>
+            <br>
+            <input type="text" name="tasktitle" id="ttitle">
+            <br><br>
+            <label for="tdate">Task date:</label>
+            <br>
+            <input type="date" name="taskdate" id="tdate">
+            <br><br>
+            <label for="tdetails">Details:</label>
+            <br>
+            <textarea name="details"id="tdetails" ></textarea>
+            <br><br>
+            <input type="submit" value="Add item" id="addbtn">
+        </form>
+        </div>
+        <!--Description list element to add items to.-->
+        <div id="yt" class="contentwrapper">
+        <h3>Your tasks</h3>
+        <dl id="tasklist">
+        </dl>
+        </div>
+        <footer>
+            <p id="footerp">TaskTracker developed by Judith Hämäläinen 2020.</p>
+        </footer>
+    </body>
+</html>
