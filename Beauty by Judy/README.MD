@@ -1,0 +1,1 @@
+My first static website created in 2019. Hosted at http://beautybyjudy.netlify.com/.
